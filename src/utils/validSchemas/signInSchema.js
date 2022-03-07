@@ -1,9 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
-const signUpSchema = Yup.object().shape({
-    name: Yup.string()
-            .required('Это поле обязательно').default(''),
+const signInSchema = Yup.object().shape({
     email: Yup.string()
             .email('Введите правильный e-mail')
             .required('Это поле обязятельно').default(''),
@@ -13,6 +11,6 @@ const signUpSchema = Yup.object().shape({
             .required('Это поле обязательно').default(''),
 });
 
-const formSignUpOptions = {resolver: yupResolver(signUpSchema)};
+const formSignInOptions = {resolver: yupResolver(signInSchema)};
 
-export default formSignUpOptions;
+export default formSignInOptions;

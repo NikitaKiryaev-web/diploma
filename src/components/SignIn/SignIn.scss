@@ -1,4 +1,4 @@
-.signup {
+.signin {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -71,18 +71,6 @@
         top: 72px;
     }
 
-    &__input-info {
-        display: inline-block;
-        font-weight: 400;
-        font-size: 12px;
-        width: 100%;
-        text-align: left;
-        text-overflow: ellipsis;
-        color: #fff;
-        position: absolute;
-        top: 72px;
-    }
-
     &__submit {
         cursor: pointer;
         width: 100%;
@@ -117,7 +105,8 @@
             }
         }
         @media(max-width: 480px) {
-            min-width: 290px;
+            min-width: unset;
+            max-width: 290px;
         }
     }
 }
