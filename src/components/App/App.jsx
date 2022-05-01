@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {Routes, Route} from 'react-router-dom';
 import './App.scss';
 import Header from '../Header/Header.jsx';
@@ -6,12 +7,18 @@ import SignIn from '../SignIn/SignIn.jsx'
 import Tests from '../Tests/Tests';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  function handleSignIn () {
+    setIsLoggedIn(true);
+  }
+
   return (
     <div className="App">
       <Routes>
       <Route exact path="/" element={
         <>
-        <Header isLoggedIn = {false} />
+        <Header isLoggedIn={isLoggedIn} />
         <Tests />
         </>
       }>
@@ -23,7 +30,7 @@ function App() {
       </Route>
 
       <Route path="/signin" element={
-        <SignIn />
+        <SignIn handleSignIn={handleSignIn} />
       }>
       </Route>
       

@@ -1,6 +1,7 @@
 import './Header.css';
 import {NavLink} from 'react-router-dom';
-import {useState} from 'react';
+import {useContext, useState} from 'react';
+import {LoggedInContext} from '../../contexts/LoggedInContext.js';
 
 function Header(props) {
   const {isLoggedIn} = props;
@@ -15,10 +16,8 @@ function Header(props) {
     setIsShowMenu(false);
   }
 
-  let headerTheme = isLoggedIn ? "header_theme_dark" : "header_theme_blue"; 
-
   return (
-    <header className={`header ${headerTheme}`}>
+    <header className="header">
       <nav className="header__nav">
         {isLoggedIn ?
         <>
