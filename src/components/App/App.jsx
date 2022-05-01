@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Redirect, Navigate} from 'react-router-dom';
 import './App.scss';
 import Header from '../Header/Header.jsx';
 import SignUp from '../SignUp/SignUp.jsx';
@@ -33,7 +33,10 @@ function App() {
         <SignIn handleSignIn={handleSignIn} />
       }>
       </Route>
-      
+      <Route
+        path="*"
+        element={<Navigate to="/" replace />}
+    />
       </Routes>
     </div>
   );
