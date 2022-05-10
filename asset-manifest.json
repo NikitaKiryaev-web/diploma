@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/diploma/static/css/main.d03e8ee6.css",
-    "main.js": "/diploma/static/js/main.cab21d85.js",
+    "main.css": "/diploma/static/css/main.c87a2178.css",
+    "main.js": "/diploma/static/js/main.51b9265c.js",
     "static/js/787.8276514b.chunk.js": "/diploma/static/js/787.8276514b.chunk.js",
     "static/media/history.png": "/diploma/static/media/history.7c0751e3eed23ade4bdf.png",
+    "static/media/404-img.jpg": "/diploma/static/media/404-img.0b6bd50554c18bd3b618.jpg",
     "index.html": "/diploma/index.html",
     "static/media/accountIcon.svg": "/diploma/static/media/accountIcon.fc24a4e99454229a30aa.svg",
     "static/media/closeBurgerMenuIcon.svg": "/diploma/static/media/closeBurgerMenuIcon.b46121a491557f05f956.svg",
     "static/media/burgerMenuIcon.svg": "/diploma/static/media/burgerMenuIcon.7dfc15635d3ae934546e.svg",
-    "main.d03e8ee6.css.map": "/diploma/static/css/main.d03e8ee6.css.map",
-    "main.cab21d85.js.map": "/diploma/static/js/main.cab21d85.js.map",
+    "main.c87a2178.css.map": "/diploma/static/css/main.c87a2178.css.map",
+    "main.51b9265c.js.map": "/diploma/static/js/main.51b9265c.js.map",
     "787.8276514b.chunk.js.map": "/diploma/static/js/787.8276514b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d03e8ee6.css",
-    "static/js/main.cab21d85.js"
+    "static/css/main.c87a2178.css",
+    "static/js/main.51b9265c.js"
   ]
 }
