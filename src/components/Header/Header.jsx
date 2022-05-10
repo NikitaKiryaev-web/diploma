@@ -1,7 +1,6 @@
 import './Header.css';
 import {NavLink} from 'react-router-dom';
-import {useContext, useState} from 'react';
-import {LoggedInContext} from '../../contexts/LoggedInContext.js';
+import {useState} from 'react';
 
 function Header(props) {
   const {isLoggedIn} = props;

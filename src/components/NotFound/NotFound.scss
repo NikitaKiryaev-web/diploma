@@ -1,0 +1,33 @@
+.not-found {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 100vh;
+    &__img {
+        width: 700px;
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+        margin: 0 0 30px;
+    }
+    &__text {
+        font-size: 20px;
+        line-height: 25px;
+        margin: 0 15px 0 0;
+        color: #fff;
+    }
+    &__link {
+        font-size: 20px;
+        line-height: 25px;
+        text-decoration: none;
+        color: #4285f4;
+        margin: 0;
+        &:hover {
+            opacity: .8;
+            transition: .3s;
+        }
+    }
+}
