@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import formSignInOptions from "../../utils/validSchemas/signInSchema.js";
 import { NavLink, useNavigate } from "react-router-dom";
 import './SignIn.scss';
 import homeIcon from "../../images/home-icon.svg";
 import api from "../../utils/api.js";
+import {LoggedInContext} from '../../contexts/LoggedInContext';
 
 function SignIn (props) {
+  const {setIsLoggedIn} = useContext(LoggedInContext);
   const { register, handleSubmit, formState: { errors } } = useForm(formSignInOptions);
   const navigate = useNavigate();
   const [login, setLogin] = useState();
@@ -22,9 +24,13 @@ function SignIn (props) {
   }
 
   function onSubmit () {
+
     api.signin(login, password)
       .then(res => {
         console.log(res);
+        setIsLoggedIn(true);
+        localStorage.setItem('loggedIn', 'true');
+        navigate('/tests');
       })
       .catch(e => {
         console.log(e)

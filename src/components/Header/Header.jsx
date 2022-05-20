@@ -1,9 +1,10 @@
 import './Header.css';
-import {NavLink} from 'react-router-dom';
-import {useState} from 'react';
+import {NavLink, Link} from 'react-router-dom';
+import {useState, useContext} from 'react';
+import {LoggedInContext} from '../../contexts/LoggedInContext.js';
 
 function Header(props) {
-  const {isLoggedIn} = props;
+  const {isLoggedIn} = useContext(LoggedInContext);
 
   const [showMenu, setIsShowMenu] = useState(false);
 
@@ -40,7 +41,7 @@ function Header(props) {
                 <NavLink className="header__menu-link" to="/">Главная</NavLink>
               </li>
               <li className="header__menu-links-item">
-                <NavLink className="header__menu-link" activeClassName="header__menu-link_active" onClick={closeMenu} to="/tests">Тесты</NavLink>
+                <NavLink className="header__menu-link" onClick={closeMenu} to="/tests">Тесты</NavLink>
               </li>
               <li className="header__menu-links-item">
                 <NavLink className="header__menu-link header__menu-link_type_account" onClick={closeMenu} to="/profile">Аккаунт</NavLink>
@@ -53,10 +54,10 @@ function Header(props) {
         <>
         <ul className="header__links header__links_right">
           <li className="header__links-item header__links-item_right">
-          <NavLink className="header__link header__link_type_signup" activeClassName="header__link_active" to='/signup'>Регистрация</NavLink>
+          <Link className="header__link header__link_type_signup" to='/signup'>Регистрация</Link>
           </li>
           <li className="header__links-item header__links-item_left">
-            <NavLink className="header__link header__link_type_signin" activeClassName="header__link_active" to="/signin">Войти</NavLink>
+            <Link className="header__link header__link_type_signin" to="/signin">Войти</Link>
           </li>
         </ul>
         </>
