@@ -6,6 +6,20 @@
     align-items: center;
     background-color: #202020;
     flex-direction: column;
+    &__home-link {
+        align-self: flex-start;
+        &:hover {
+            transition: .3s;
+            opacity: .8;
+        }
+    }
+
+    &__home-img {
+        width: 40px;
+        height: 40px;
+        fill: #fff;
+        margin: 0 0 20px;
+    }
     &__form {
         min-width: 400px;
         @media(max-width: 480px) {

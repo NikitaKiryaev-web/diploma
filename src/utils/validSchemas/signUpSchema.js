@@ -4,8 +4,7 @@ import * as Yup from 'yup';
 const signUpSchema = Yup.object().shape({
     name: Yup.string()
             .required('Это поле обязательно').default(''),
-    email: Yup.string()
-            .email('Введите правильный e-mail')
+    login: Yup.string()
             .required('Это поле обязятельно').default(''),
     password: Yup.string()
             .min(6, 'Пароль должен содержать минимум 6 символов')

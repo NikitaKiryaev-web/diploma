@@ -3,16 +3,17 @@ import { useState } from "react";
 import formSignInOptions from "../../utils/validSchemas/signInSchema.js";
 import { NavLink, useNavigate } from "react-router-dom";
 import './SignIn.scss';
+import homeIcon from "../../images/home-icon.svg";
+import api from "../../utils/api.js";
 
 function SignIn (props) {
   const { register, handleSubmit, formState: { errors } } = useForm(formSignInOptions);
   const navigate = useNavigate();
-  const [email, setEmail] = useState();
+  const [login, setLogin] = useState();
   const [password, setPassword] = useState();
-  const {handleSignIn} = props;
 
-  function handleEmail(e) {
-    setEmail(e.target.value);
+  function handleLogin(e) {
+    setLogin(e.target.value);
   }
 
   
@@ -21,27 +22,31 @@ function SignIn (props) {
   }
 
   function onSubmit () {
-    if(email === "test@test.ru" && password === "testtest") {
-      navigate('/');
-    }
-    handleSignIn();
+    api.signin(login, password)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(e => {
+        console.log(e)
+      })
   }
 
   return(
     <section className="signin">
       <form className="signin__form" noValidate onSubmit={handleSubmit(onSubmit)}>
+      <NavLink className="signin__home-link" to="/"><img src={homeIcon} className="signin__home-img" alt="Home page" /></NavLink>
         <fieldset className="signin__fieldset">
         
-          <label htmlFor="email" className="signin__label"> E-mail
+          <label htmlFor="login" className="signin__label"> Логин
           <input
-            {...register('email')}
-            type="email" 
-            name="email"
+            {...register('login')}
+            type="string" 
+            name="login"
             id="email"
-            placeholder="Введите ваш e-mail" 
+            placeholder="Введите ваш логин" 
             className="signin__input"
-            onChange={handleEmail} />
-            <span className="signin__input-error">{errors.email?.message }</span>
+            onChange={handleLogin} />
+            <span className="signin__input-error">{errors.login?.message }</span>
           </label>
 
           <label htmlFor="name" className="signin__label"> Пароль

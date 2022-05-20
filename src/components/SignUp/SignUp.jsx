@@ -3,6 +3,7 @@ import formSignUpOptions from "../../utils/validSchemas/signUpSchema";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import './SignUp.scss';
+import homeIcon from '../../images/home-icon.svg';
 
 function SignUp (props) {
   const { register, handleSubmit, formState: { errors } } = useForm(formSignUpOptions);
@@ -17,6 +18,7 @@ function SignUp (props) {
   return(
     <section className="signup">
       <form className="signup__form" noValidate onSubmit={handleSubmit(onSubmit)}>
+      <NavLink className="signin__home-link" to="/"><img src={homeIcon} className="signin__home-img" alt="Home page" /></NavLink>
         <fieldset className="signup__fieldset">
           <label htmlFor="name" className="signup__label"> Имя
           <input

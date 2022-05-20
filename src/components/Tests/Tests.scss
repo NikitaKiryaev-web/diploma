@@ -1,6 +1,6 @@
 .tests {
     max-width: 1024px;
-    margin: 30px auto 0;
+    margin: 30px auto 20px;
     background-color: #202020;
 
     &__list {
@@ -10,6 +10,9 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         list-style-type: none;
         padding: 0;
+        @media(max-width: 425px) {
+            padding: 0 10px;
+        }
 
         &-item {
             padding: 0;
