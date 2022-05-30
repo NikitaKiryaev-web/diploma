@@ -1,0 +1,102 @@
+.test {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 1024px;
+    margin: auto;
+    flex-direction: column;
+    &__counter {
+        font-size: 22px;
+        line-height: 25px;
+        color: #fff;
+        font-weight: bold;
+        margin: 0 0 30px;
+    }
+    &__question {
+        font-size: 22px;
+        line-height: 30px;
+        color: #fff;
+        font-weight: 700;
+        margin: 0 0 50px;
+        max-width: 800px;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+    &__label { 
+        cursor: pointer;
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        margin: 0 0 30px;
+        font-size: 17px;
+        line-height: 22px;
+        height: 25px;
+        color: #fff;
+        padding-left: 35px;
+        input {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+    &__checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        border-radius: 50%;
+    }
+
+    &__label:hover input ~ .test__checkmark {
+        transition: .3s;
+        background-color: #ccc;
+    }
+    &__label input:checked ~ .test__checkmark {
+        background-color: #febd17;
+    }
+    &__checkmark::after {
+        content: '';
+        position: absolute;
+        display: none;
+        top: 8px;
+        left: 8px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: white;
+    }
+    &__label input:checked ~ .test__checkmark::after {
+        display: block;
+    }
+    &__submit {
+        width: 300px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: #febd17;
+        font-size: 20px;
+        cursor: pointer;
+        line-height: 25px;
+        color: #000;
+        margin: 0 0 10px;
+        &:hover {
+            transition: .3s;
+            opacity: .8;
+        }
+    }
+    &__error {
+        display: inline-block;
+        font-weight: 400;
+        font-size: 15px;
+        width: 100%;
+        text-align: left;
+        text-overflow: ellipsis;
+        color: #ee3465;
+    }
+}

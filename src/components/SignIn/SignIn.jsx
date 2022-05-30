@@ -6,9 +6,11 @@ import './SignIn.scss';
 import homeIcon from "../../images/home-icon.svg";
 import api from "../../utils/api.js";
 import {LoggedInContext} from '../../contexts/LoggedInContext';
+import {UserContext} from '../../contexts/UserContext.js';
 
 function SignIn (props) {
   const {setIsLoggedIn} = useContext(LoggedInContext);
+  const {setUserLogin} = useContext(UserContext);
   const { register, handleSubmit, formState: { errors } } = useForm(formSignInOptions);
   const navigate = useNavigate();
   const [login, setLogin] = useState();
@@ -30,6 +32,8 @@ function SignIn (props) {
         console.log(res);
         setIsLoggedIn(true);
         localStorage.setItem('loggedIn', 'true');
+        setUserLogin(login);
+        localStorage.setItem('userLogin', `${login}`);
         navigate('/tests');
       })
       .catch(e => {
@@ -52,7 +56,7 @@ function SignIn (props) {
             placeholder="Введите ваш логин" 
             className="signin__input"
             onChange={handleLogin} />
-            <span className="signin__input-error">{errors.login?.message }</span>
+            <span className="signin__input-error">{errors.login?.message}</span>
           </label>
 
           <label htmlFor="name" className="signin__label"> Пароль

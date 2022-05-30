@@ -1,0 +1,25 @@
+- src/
+  - components/
+    - App/
+      - App.jsx
+      - App.scss
+      ...
+
+    - Header/
+      - Header.jsx
+      - Header.scss
+      ...
+  - utils/
+    - util1.js
+    - util2.js
+    ...
+  - contexts/
+    - context1.js
+    - context2.js
+    ...
+  -images/
+    - image1.png
+    - image2.jpg
+    ...
+  - index.js
+    

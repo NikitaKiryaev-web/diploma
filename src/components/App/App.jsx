@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {Routes, Route, Navigate} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import './App.scss';
 import { LoggedInContext } from '../../contexts/LoggedInContext.js';
 import Header from '../Header/Header.jsx';
@@ -10,22 +10,25 @@ import NotFound from '../NotFound/NotFound.jsx';
 import Home from '../Home/Home.jsx';
 import Footer from '../Footer/Footer.jsx';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.jsx';
+import Test from '../Test/Test.jsx';
+import { UserContext } from '../../contexts/UserContext.js';
 
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userLogin, setUserLogin] = useState('');
 
   useEffect(() => {
     if(localStorage.getItem('loggedIn') === 'true') {
       setIsLoggedIn(true);
     }
+    if(localStorage.getItem('userLogin')) {
+      setUserLogin(localStorage.getItem('userLogin'));
+    }
   }, []);
 
-  function handleSignIn () {
-    setIsLoggedIn(true);
-  }
-
   return (
+    <UserContext.Provider value={{userLogin, setUserLogin}}>
     <LoggedInContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
     <div className="App">
       <Routes>
@@ -59,11 +62,18 @@ function App() {
 
       <Route path="/signin" element={
         <>
-        <SignIn handleSignIn={handleSignIn} />
+        <SignIn />
         <Footer />
         </>
       }>
       </Route>
+      <Route path="/test/:id" element={
+        <>
+        <Header />
+        <Test />
+        <Footer />
+        </>
+      }></Route>
       <Route
         path="*"
         element={<NotFound />}
@@ -71,6 +81,7 @@ function App() {
       </Routes>
     </div>
     </LoggedInContext.Provider>
+    </UserContext.Provider>
   );
 }
 
