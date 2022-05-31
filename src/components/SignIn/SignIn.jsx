@@ -11,6 +11,7 @@ import {UserContext} from '../../contexts/UserContext.js';
 function SignIn (props) {
   const {setIsLoggedIn} = useContext(LoggedInContext);
   const {setUserLogin} = useContext(UserContext);
+  const [isSuccess, setIsSuccess] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm(formSignInOptions);
   const navigate = useNavigate();
   const [login, setLogin] = useState();
@@ -38,13 +39,14 @@ function SignIn (props) {
       })
       .catch(e => {
         console.log(e)
+        setIsSuccess(false);
       })
   }
 
   return(
     <section className="signin">
       <form className="signin__form" noValidate onSubmit={handleSubmit(onSubmit)}>
-      <NavLink className="signin__home-link" to="/"><img src={homeIcon} className="signin__home-img" alt="Home page" /></NavLink>
+      <NavLink className="signin__home-link" to="/"><img src={homeIcon} className="signin__home-img" alt="Home page" />На главную</NavLink>
         <fieldset className="signin__fieldset">
         
           <label htmlFor="login" className="signin__label"> Логин
@@ -73,7 +75,8 @@ function SignIn (props) {
           <button className="signin__submit" type="submit" onSubmit={onSubmit}>Войти</button>
         </fieldset>
       </form>
-      <p className="signin__tip">Ещё не зарегистрированы? <NavLink className="signin__tip-link" to='/signup'> Зарегистрироваться</NavLink></p>
+      <span className="signin__form-error">{!isSuccess && "Данные неверны"}</span>
+      {/* <p className="signin__tip">Ещё не зарегистрированы? <NavLink className="signin__tip-link" to='/signup'> Зарегистрироваться</NavLink></p> */}
     </section>
   )
 }

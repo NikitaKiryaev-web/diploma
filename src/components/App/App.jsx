@@ -52,13 +52,13 @@ function App() {
       }>
       </Route>
 
-      <Route path="/signup" element={
+      {/* <Route path="/signup" element={
         <>
         <SignUp />
         <Footer />
         </>
       }>
-      </Route>
+      </Route> */}
 
       <Route path="/signin" element={
         <>

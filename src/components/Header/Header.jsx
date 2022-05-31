@@ -2,9 +2,11 @@ import './Header.css';
 import {NavLink, Link} from 'react-router-dom';
 import {useState, useContext} from 'react';
 import {LoggedInContext} from '../../contexts/LoggedInContext.js';
+import {UserContext} from '../../contexts/UserContext.js';
 
 function Header(props) {
   const {isLoggedIn, setIsLoggedIn} = useContext(LoggedInContext);
+  const {setUserLogin} = useContext(UserContext);
 
   const [showMenu, setIsShowMenu] = useState(false);
 
@@ -24,6 +26,7 @@ function Header(props) {
     if(localStorage.getItem('userLogin')) {
       localStorage.removeItem('userLogin');
     }
+    setUserLogin('');
   }
 
   return (
