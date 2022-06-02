@@ -7,17 +7,25 @@
     margin: 0 auto;
     height: 100vh;
     &__img {
-        width: 700px;
+        width: 500px;
         height: auto;
         object-fit: cover;
         object-position: center;
         margin: 0 0 30px;
+        @media(max-width: 767px) {
+            width: 250px;
+        }
     }
     &__text {
         font-size: 20px;
         line-height: 25px;
-        margin: 0 15px 0 0;
-        color: #fff;
+        margin: 0;
+        color: #000;
+        @media(max-width: 767px) {
+            font-size: 14px;
+            line-height: 19px;
+            text-align: center;
+        }
     }
     &__link {
         font-size: 20px;
@@ -25,6 +33,10 @@
         text-decoration: none;
         color: #4285f4;
         margin: 0;
+        @media(max-width: 767px) {
+            font-size: 14px;
+            line-height: 19px;
+        }
         &:hover {
             opacity: .8;
             transition: .3s;

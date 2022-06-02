@@ -1,7 +1,7 @@
 .tests {
     max-width: 1024px;
     margin: 30px auto 20px;
-    background-color: #202020;
+    background-color: #EFE2BA;
     height: 100vh;
 
     &__list {
@@ -11,6 +11,7 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         list-style-type: none;
         padding: 0;
+        justify-items: center;
         @media(max-width: 425px) {
             padding: 0 10px;
         }
@@ -24,6 +25,6 @@
         font-size: 20px;
         line-height: 25px;
         margin: 30px auto;
-        color: #fff;
+        color: #000;
     }
 }

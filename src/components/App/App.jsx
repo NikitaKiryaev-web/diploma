@@ -73,7 +73,8 @@ function App() {
         <Test />
         <Footer />
         </>
-      }></Route>
+      }>
+      </Route>
       <Route
         path="*"
         element={<NotFound />}

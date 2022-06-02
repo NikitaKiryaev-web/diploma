@@ -3,27 +3,44 @@ import { useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import formTestOptions from '../../utils/validSchemas/testSchema.js';
 import api from '../../utils/api.js';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+import TestCompleted from '../TestCompleted/TestCompleted.jsx';
 
 function Test(props) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [questions, setQuestions] = useState([]);
     const [answers, setAnswers] = useState({});
+    const [currentAnswer, setCurrentAnswer] = useState({});
+    const [isCompleted, setIsCompleted] = useState(true);
     const { register, handleSubmit, formState: { errors } } = useForm(formTestOptions);
     function onSubmit() {
-        console.log('Success');
+        if(currentQuestion + 1 < questions.length) {
+            setAnswers({...answers, [questions[currentQuestion].QuestionCode]: currentAnswer})
+            setCurrentQuestion(prevState => prevState + 1);
+        }
+        else {
+            console.log('Done');
+        }
     }
+
+    const memoizedHandleChange = useCallback((e) =>  {
+        setCurrentAnswer(e.target.value);
+    }, [])
 
     const { id } = useParams();
 
-    useEffect(async () => {
+    useEffect(() => {
+        async function fetchData() {
         const result = await api.getQuestionsAndAnswers(id.slice(1))
         setQuestions([...result])
+        }
+        fetchData();
     }, [])
 
     return(
         <div className="test">
-            { questions.length ?
+            { !isCompleted ?  
+            questions.length ?
             <>
             <p className="test__counter">{currentQuestion + 1}/{questions.length}</p>
             <h2 className="test__question">{questions[currentQuestion].QuestionText}</h2>
@@ -32,7 +49,7 @@ function Test(props) {
                     questions[currentQuestion].Answer.map(answer => {
                         return(
                             <label className='test__label' key={answer.AnswerCode}>
-                                <input {...register('answer')} name='answer' id={answer.AnswerCode} type="radio" className="test__radio" />
+                                <input {...register('answer')} name='answer' onChange={memoizedHandleChange} id={answer.AnswerCode} value={answer.AnswerCode} type="radio" className="test__radio" />
                                 <span className='test__checkmark'></span>
                             {answer.AnswerText}
                             </label>
@@ -45,6 +62,8 @@ function Test(props) {
             </>
             :
             <p>Что-то пошло не так</p>
+            :
+            <TestCompleted />
 }
         </div>
     )

@@ -11,7 +11,7 @@ import {UserContext} from '../../contexts/UserContext.js';
 function SignIn (props) {
   const {setIsLoggedIn} = useContext(LoggedInContext);
   const {setUserLogin} = useContext(UserContext);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(true);
   const { register, handleSubmit, formState: { errors } } = useForm(formSignInOptions);
   const navigate = useNavigate();
   const [login, setLogin] = useState();
@@ -27,7 +27,6 @@ function SignIn (props) {
   }
 
   function onSubmit () {
-
     api.signin(login, password)
       .then(res => {
         console.log(res);
