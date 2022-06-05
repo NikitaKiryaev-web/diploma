@@ -9,17 +9,19 @@ import TestCompleted from '../TestCompleted/TestCompleted.jsx';
 function Test(props) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [questions, setQuestions] = useState([]);
-    const [answers, setAnswers] = useState({});
+    const [answers, setAnswers] = useState([]);
     const [currentAnswer, setCurrentAnswer] = useState({});
-    const [isCompleted, setIsCompleted] = useState(true);
+    const [isCompleted, setIsCompleted] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm(formTestOptions);
     function onSubmit() {
         if(currentQuestion + 1 < questions.length) {
-            setAnswers({...answers, [questions[currentQuestion].QuestionCode]: currentAnswer})
+            setAnswers([...answers, {code: currentAnswer}])
             setCurrentQuestion(prevState => prevState + 1);
         }
         else {
             console.log('Done');
+            setAnswers([...answers, {code: currentAnswer}])
+            setIsCompleted(true);
         }
     }
 
@@ -63,7 +65,7 @@ function Test(props) {
             :
             <p>Что-то пошло не так</p>
             :
-            <TestCompleted />
+            <TestCompleted testID={id.slice(1)} answers={answers}  />
 }
         </div>
     )

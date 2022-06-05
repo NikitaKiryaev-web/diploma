@@ -25,8 +25,8 @@ function Tests(props) {
             {tests.length ? 
             tests.map(test => {
               return (
-              <li className="tests__list-item" key={test.TestCode}>
-              <TestCard name={test.TestName} id={test.TestCode} img={test.TestPic}  />
+              <li className="tests__list-item" key={test.GUID}>
+              <TestCard name={test.TestName} id={test.GUID} img={test.TestPic}  />
             </li>
               )
             })

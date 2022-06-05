@@ -54,6 +54,21 @@ class Api {
         });
         return this._getResponse(res);
     };
+
+    async getResults(id, answers) {
+        const res = await fetch(`${this._url}/QuestionsAndAnswers/final/${id}`, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "Authorization": "Basic 0JDQtNC80LjQvdC40YHRgtGA0LDRgtC+0YA=",
+            },
+            body: JSON.stringify({
+                "answers": answers
+            })
+        });
+        return this._getResponse(res);
+    };
 }
 
 const api = new Api({

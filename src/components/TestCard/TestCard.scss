@@ -16,8 +16,8 @@
     }
     &__img {
         width: 100%;
-        height: auto;
-        object-fit: contain;
+        height: 205px;
+        object-fit: cover;
         object-position: center;
         overflow: hidden;
     }
