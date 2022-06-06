@@ -16,6 +16,7 @@ function SignIn (props) {
   const navigate = useNavigate();
   const [login, setLogin] = useState();
   const [password, setPassword] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleLogin(e) {
     setLogin(e.target.value);
@@ -27,9 +28,9 @@ function SignIn (props) {
   }
 
   function onSubmit () {
+    setIsLoading(true);
     api.signin(login, password)
       .then(res => {
-        console.log(res);
         setIsLoggedIn(true);
         localStorage.setItem('loggedIn', 'true');
         setUserLogin(login);
@@ -39,6 +40,9 @@ function SignIn (props) {
       .catch(e => {
         console.log(e)
         setIsSuccess(false);
+      })
+      .finally(() => {
+        setIsLoading(false);
       })
   }
 
@@ -71,7 +75,7 @@ function SignIn (props) {
             onChange={handlePassword} />
             <span className="signin__input-error">{errors.password?.message }</span>
             </label>
-          <button className="signin__submit" type="submit" onSubmit={onSubmit}>Войти</button>
+          <button className="signin__submit" disabled={isLoading} type="submit" onSubmit={onSubmit}>Войти</button>
         </fieldset>
       </form>
       <span className="signin__form-error">{!isSuccess && "Данные неверны"}</span>

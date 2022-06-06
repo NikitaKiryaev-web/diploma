@@ -14,7 +14,6 @@ function TestCompleted(props) {
     useEffect(() => {
         api.getResults(testID, answers)
             .then(res => {
-                console.log(res[0]);
                 setPoints(Math.floor(res[0].points));
                 setMaxScore(res[0].MaximumScore)
             })

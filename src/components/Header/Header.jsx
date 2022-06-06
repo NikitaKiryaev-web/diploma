@@ -1,4 +1,4 @@
-import './Header.css';
+import './Header.scss';
 import {NavLink, Link} from 'react-router-dom';
 import {useState, useContext} from 'react';
 import {LoggedInContext} from '../../contexts/LoggedInContext.js';
@@ -66,9 +66,6 @@ function Header(props) {
         :
         <>
         <ul className="header__links header__links_right">
-          {/* <li className="header__links-item header__links-item_right">
-          <Link className="header__link header__link_type_signup" to='/signup'>Регистрация</Link>
-          </li> */}
           <li className="header__links-item header__links-item_left">
             <Link className="header__link header__link_type_signin" to="/signin">Войти</Link>
           </li>

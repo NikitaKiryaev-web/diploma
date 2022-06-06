@@ -13,6 +13,7 @@ function Test(props) {
     const [currentAnswer, setCurrentAnswer] = useState({});
     const [isCompleted, setIsCompleted] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm(formTestOptions);
+    
     function onSubmit() {
         if(currentQuestion + 1 < questions.length) {
             setAnswers([...answers, {code: currentAnswer}])
