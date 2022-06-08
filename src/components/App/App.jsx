@@ -3,7 +3,6 @@ import {Routes, Route} from 'react-router-dom';
 import './App.scss';
 import { LoggedInContext } from '../../contexts/LoggedInContext.js';
 import Header from '../Header/Header.jsx';
-import SignUp from '../SignUp/SignUp.jsx';
 import SignIn from '../SignIn/SignIn.jsx'
 import Tests from '../Tests/Tests';
 import NotFound from '../NotFound/NotFound.jsx';
@@ -51,14 +50,6 @@ function App() {
         </ProtectedRoute>
       }>
       </Route>
-
-      {/* <Route path="/signup" element={
-        <>
-        <SignUp />
-        <Footer />
-        </>
-      }>
-      </Route> */}
 
       <Route path="/signin" element={
         <>
