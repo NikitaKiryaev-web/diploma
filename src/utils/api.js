@@ -72,7 +72,7 @@ class Api {
 }
 
 const api = new Api({
-    url: "http://localhost/Tests/hs"
+    url: "https://kpk.1c.ru/testing_system/hs"
 })
 
 export default api;
