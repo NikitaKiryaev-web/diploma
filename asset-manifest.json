@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/diploma/static/css/main.3270acac.css",
-    "main.js": "/diploma/static/js/main.34a06efa.js",
+    "main.js": "/diploma/static/js/main.48ccc3e0.js",
     "static/js/787.8276514b.chunk.js": "/diploma/static/js/787.8276514b.chunk.js",
     "static/media/hello.gif": "/diploma/static/media/hello.07f514bf96484d71ac4a.gif",
     "static/media/checkSuccess.png": "/diploma/static/media/checkSuccess.d7ff520a234d6a4deeb6.png",
@@ -14,11 +14,11 @@
     "static/media/closeBurgerMenuIcon.svg": "/diploma/static/media/closeBurgerMenuIcon.fb711a5e08929fb2b337.svg",
     "static/media/burgerMenuIcon.svg": "/diploma/static/media/burgerMenuIcon.3e46a7062a72be28c05c.svg",
     "main.3270acac.css.map": "/diploma/static/css/main.3270acac.css.map",
-    "main.34a06efa.js.map": "/diploma/static/js/main.34a06efa.js.map",
+    "main.48ccc3e0.js.map": "/diploma/static/js/main.48ccc3e0.js.map",
     "787.8276514b.chunk.js.map": "/diploma/static/js/787.8276514b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3270acac.css",
-    "static/js/main.34a06efa.js"
+    "static/js/main.48ccc3e0.js"
   ]
 }
