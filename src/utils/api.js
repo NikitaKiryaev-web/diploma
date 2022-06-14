@@ -16,7 +16,6 @@ class Api {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                "Authorization": "Basic 0JDQtNC80LjQvdC40YHRgtGA0LDRgtC+0YA=",
             },
             body: JSON.stringify({
                 login,
@@ -33,7 +32,6 @@ class Api {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                "Authorization": "Basic 0JDQtNC80LjQvdC40YHRgtGA0LDRgtC+0YA=",
             },
             body: JSON.stringify({
                 "studentID": login
@@ -49,7 +47,6 @@ class Api {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                "Authorization": "Basic 0JDQtNC80LjQvdC40YHRgtGA0LDRgtC+0YA=",
             },
         });
         return this._getResponse(res);
@@ -61,7 +58,6 @@ class Api {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                "Authorization": "Basic 0JDQtNC80LjQvdC40YHRgtGA0LDRgtC+0YA=",
             },
             body: JSON.stringify({
                 "answers": answers
