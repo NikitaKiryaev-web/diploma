@@ -25,6 +25,7 @@ function SignIn (props) {
   
   function handlePassword(e) {
     setPassword(e.target.value);
+    console.log(password);
   }
 
   function onSubmit () {
@@ -48,7 +49,7 @@ function SignIn (props) {
 
   return(
     <section className="signin">
-      <form className="signin__form" noValidate onSubmit={handleSubmit(onSubmit)}>
+      <form className="signin__form" noValidate onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <NavLink className="signin__home-link" to="/"><img src={homeIcon} className="signin__home-img" alt="Home page" />На главную</NavLink>
         <fieldset className="signin__fieldset">
         
@@ -66,7 +67,7 @@ function SignIn (props) {
 
           <label htmlFor="name" className="signin__label"> Пароль
           <input
-            {...register('password',)}
+            {...register('password')}
             type="password" 
             name="password"
             id="password"

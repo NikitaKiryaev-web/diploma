@@ -51,7 +51,7 @@ function Header(props) {
             <button className="header__menu-button-close" onClick={closeMenu}></button>
             <ul className="header__menu-links">
               <li className="header__menu-links-item">
-                <NavLink className="header__menu-link" to="/">Главная</NavLink>
+                <NavLink className="header__menu-link" onClick={closeMenu} to="/">Главная</NavLink>
               </li>
               <li className="header__menu-links-item">
                 <NavLink className="header__menu-link" onClick={closeMenu} to="/tests">Тесты</NavLink>
