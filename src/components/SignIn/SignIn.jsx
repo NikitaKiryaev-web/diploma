@@ -25,7 +25,6 @@ function SignIn (props) {
   
   function handlePassword(e) {
     setPassword(e.target.value);
-    console.log(password);
   }
 
   function onSubmit () {
